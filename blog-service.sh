@@ -6,7 +6,7 @@ RUNTIME_DIR="$ROOT_DIR/.tmp"
 PID_FILE="$RUNTIME_DIR/blog-service.pid"
 LOG_FILE="$RUNTIME_DIR/blog-service.log"
 HOST="${HOST:-0.0.0.0}"
-PORT="${PORT:-3000}"
+PORT="${PORT:-8080}"
 NODE_SCRIPT="$ROOT_DIR/tools/local-server.mjs"
 
 mkdir -p "$RUNTIME_DIR"
@@ -99,7 +99,7 @@ Usage: $0 {start|stop|restart|status|logs}
 
 Environment variables:
   HOST   Listen host (default: 0.0.0.0)
-  PORT   Listen port (default: 3000)
+  PORT   Listen port (default: 8080)
 
 Examples:
   $0 start

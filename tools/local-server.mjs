@@ -6,7 +6,7 @@ import { access, stat } from "node:fs/promises";
 import { extname, resolve } from "node:path";
 
 const DEFAULT_HOST = "0.0.0.0";
-const DEFAULT_PORT = 3000;
+const DEFAULT_PORT = 8080;
 const ROOT_DIR = resolve(process.cwd());
 
 const MIME_TYPES = {

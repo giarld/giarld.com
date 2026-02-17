@@ -76,7 +76,7 @@ function runTypewriter() {
 function renderRepos(repos) {
   const container = document.getElementById("repo-list");
   const activeRepos = repos
-    .filter((repo) => !repo.fork)
+    .filter((repo) => !repo.fork && repo.name.toLowerCase() !== "giarld.com")
     .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))
     .slice(0, 8);
 
