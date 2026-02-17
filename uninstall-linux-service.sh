@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-SERVICE_NAME="${SERVICE_NAME:-aimake-blog}"
+SERVICE_NAME="${SERVICE_NAME:-giarld-blog}"
 UNIT_PATH="/etc/systemd/system/${SERVICE_NAME}.service"
 
 usage() {
@@ -9,11 +9,11 @@ usage() {
 Usage: sudo $0 [options]
 
 Options:
-  --name=<service_name>   systemd service name (default: aimake-blog)
+  --name=<service_name>   systemd service name (default: giarld-blog)
   -h, --help              show this help
 
 Example:
-  sudo $0 --name=aimake-blog
+  sudo $0 --name=giarld-blog
 EOF
 }
 

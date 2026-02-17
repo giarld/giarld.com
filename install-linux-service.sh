@@ -2,7 +2,7 @@
 set -euo pipefail
 
 PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
-SERVICE_NAME="${SERVICE_NAME:-aimake-blog}"
+SERVICE_NAME="${SERVICE_NAME:-giarld.com}"
 SERVICE_USER="${SERVICE_USER:-${SUDO_USER:-$(id -un)}}"
 SERVICE_GROUP="${SERVICE_GROUP:-$(id -gn "$SERVICE_USER")}"
 SERVICE_HOST="${SERVICE_HOST:-127.0.0.1}"
@@ -23,7 +23,7 @@ usage() {
 Usage: sudo $0 [options]
 
 Options:
-  --name=<service_name>     systemd service name (default: aimake-blog)
+  --name=<service_name>     systemd service name (default: giarld.com)
   --user=<service_user>     run as which Linux user (default: current user)
   --group=<service_group>   run as which Linux group (default: primary group of user)
   --host=<listen_host>      service host (default: 127.0.0.1)
@@ -33,7 +33,7 @@ Options:
   -h, --help                show this help
 
 Example:
-  sudo $0 --name=aimake-blog --user=www-data --host=127.0.0.1 --port=8080
+  sudo $0 --name=giarld.com --user=www-data --host=127.0.0.1 --port=8080
 EOF
 }
 
@@ -112,7 +112,7 @@ fi
 
 cat > "${UNIT_PATH}" <<EOF
 [Unit]
-Description=AIMake Blog Node Service
+Description=Giarld blog Node Service
 After=network-online.target
 Wants=network-online.target
 
