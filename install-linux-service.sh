@@ -11,6 +11,13 @@ NODE_BIN="${NODE_BIN:-$(command -v node || true)}"
 NODE_SCRIPT="${PROJECT_DIR}/tools/local-server.mjs"
 UNIT_PATH="/etc/systemd/system/${SERVICE_NAME}.service"
 
+normalize_service_name() {
+  if [[ "${SERVICE_NAME}" == *.service ]]; then
+    SERVICE_NAME="${SERVICE_NAME%.service}"
+  fi
+  UNIT_PATH="/etc/systemd/system/${SERVICE_NAME}.service"
+}
+
 usage() {
   cat <<EOF
 Usage: sudo $0 [options]
@@ -65,6 +72,8 @@ for arg in "$@"; do
       ;;
   esac
 done
+
+normalize_service_name
 
 if [[ "$(uname -s)" != "Linux" ]]; then
   echo "This installer only supports Linux with systemd." >&2
