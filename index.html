@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gxin | Geek Logbook</title>
+  <meta name="description" content="Gxin 的个人博客，聚焦代码、工具链与开源实践。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="scan" aria-hidden="true"></div>
+
+  <header class="site-header reveal">
+    <div class="brand">
+      <span class="prompt">root@gxin:~$</span>
+      <h1>Geek Logbook</h1>
+    </div>
+    <a class="ghost-btn" href="https://github.com/giarld" target="_blank" rel="noreferrer">Open GitHub</a>
+  </header>
+
+  <main>
+    <section class="hero reveal">
+      <div class="hero-left">
+        <p class="eyebrow">/usr/local/profile</p>
+        <h2 id="profile-name">Gxin</h2>
+        <p id="bio">Loading bio...</p>
+        <div class="terminal-box">
+          <p class="line"><span class="prefix">$</span> <span id="type-line"></span><span class="cursor">_</span></p>
+          <p class="line muted" id="type-output">bootstrapping portfolio...</p>
+        </div>
+      </div>
+      <div class="hero-right">
+        <img id="avatar" src="https://avatars.githubusercontent.com/u/7036981?v=4" alt="Gxin Avatar" />
+        <div class="badge">STATUS: ONLINE</div>
+      </div>
+    </section>
+
+    <section class="stats reveal" aria-label="GitHub Stats">
+      <article>
+        <h3>Public Repos</h3>
+        <p id="stat-repos">--</p>
+      </article>
+      <article>
+        <h3>Followers</h3>
+        <p id="stat-followers">--</p>
+      </article>
+      <article>
+        <h3>Following</h3>
+        <p id="stat-following">--</p>
+      </article>
+      <article>
+        <h3>Account Age</h3>
+        <p id="stat-age">--</p>
+      </article>
+    </section>
+
+    <section class="panel reveal">
+      <div class="panel-head">
+        <h3>Repo Feed</h3>
+        <p>最近更新的开源项目</p>
+      </div>
+      <div id="repo-list" class="repo-list" role="list"></div>
+    </section>
+
+    <section class="panel reveal">
+      <div class="panel-head">
+        <h3>Language Matrix</h3>
+        <p>基于公开仓库的语言占比</p>
+      </div>
+      <div id="lang-list" class="lang-list"></div>
+    </section>
+
+    <section class="panel reveal about">
+      <div class="panel-head">
+        <h3>About /dev</h3>
+      </div>
+      <p>
+        这里是 Gxin 的实验场。核心兴趣是 C++、系统工具与工程效率。
+        习惯把想法写成可运行代码，把问题拆成可验证模块，把项目当作长期迭代的系统工程。
+      </p>
+      <p>
+        如果你也偏好“先做出来，再持续优化”的工作流，欢迎一起交流。
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer reveal">
+    <p>© <span id="year"></span> Gxin. Built with keyboard + curiosity.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
