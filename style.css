@@ -166,6 +166,10 @@ main {
   animation: blink 0.9s steps(1, end) infinite;
 }
 
+.legacy-typewriter {
+  display: none !important;
+}
+
 .muted {
   color: var(--muted);
 }
