@@ -3,10 +3,13 @@ const USER_API = `https://api.github.com/users/${USERNAME}`;
 const REPO_API = `https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=updated`;
 const LOCAL_DATA_URL = "./data/github-data.json";
 
-const typeCommands = [
-  "fetch --profile giarld",
-  "scan --repos --lang --stars",
-  "render --theme geek-console"
+const helloWorldSnippets = [
+  'print("Hello, World!")',
+  'console.log("Hello, World!");',
+  '#include <iostream>\nint main() {\n  std::cout << "Hello, World!";\n}',
+  'package main\nimport "fmt"\nfunc main() {\n  fmt.Println("Hello, World!")\n}',
+  'fn main() {\n  println!("Hello, World!");\n}',
+  'class Main {\n  public static void main(String[] args) {\n    System.out.println("Hello, World!");\n  }\n}'
 ];
 
 function formatDate(iso) {
@@ -44,33 +47,40 @@ function revealOnScroll() {
   });
 }
 
-function runTypewriter() {
-  const lineEl = document.getElementById("type-line");
-  const outputEl = document.getElementById("type-output");
-  let cmdIndex = 0;
+function runHelloWorldShowcase() {
+  const codeEl = document.getElementById("hello-code");
+  if (!codeEl) {
+    return;
+  }
+
+  let snippetIndex = 0;
   let charIndex = 0;
 
-  function tick() {
-    const current = typeCommands[cmdIndex];
-    lineEl.textContent = current.slice(0, charIndex);
-    charIndex += 1;
+  function typeSnippet() {
+    const snippet = helloWorldSnippets[snippetIndex];
 
-    if (charIndex <= current.length) {
-      setTimeout(tick, 44);
+    if (charIndex === 0) {
+      codeEl.textContent = "";
+      codeEl.classList.add("is-typing");
+    }
+
+    if (charIndex < snippet.length) {
+      codeEl.textContent += snippet[charIndex];
+      charIndex += 1;
+      const delay = snippet[charIndex - 1] === "\n" ? 80 : 28;
+      setTimeout(typeSnippet, delay);
       return;
     }
 
-    outputEl.textContent = `done: ${current}`;
+    codeEl.classList.remove("is-typing");
     setTimeout(() => {
-      cmdIndex = (cmdIndex + 1) % typeCommands.length;
+      snippetIndex = (snippetIndex + 1) % helloWorldSnippets.length;
       charIndex = 0;
-      lineEl.textContent = "";
-      outputEl.textContent = "running next task...";
-      setTimeout(tick, 420);
-    }, 1300);
+      typeSnippet();
+    }, 1200);
   }
 
-  tick();
+  typeSnippet();
 }
 
 function renderRepos(repos) {
@@ -196,7 +206,7 @@ async function loadGithubData() {
 function init() {
   document.getElementById("year").textContent = new Date().getFullYear();
   revealOnScroll();
-  runTypewriter();
+  runHelloWorldShowcase();
   loadGithubData();
 }
 

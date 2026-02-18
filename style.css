@@ -148,15 +148,20 @@ main {
   padding: 0.85rem;
 }
 
-.line {
+.hello-code {
   margin: 0;
+  min-height: 6.8em;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.83rem;
+  line-height: 1.5;
+  color: #d7e8d0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  position: relative;
 }
 
-.prefix {
-  color: var(--accent-warm);
-}
-
-.cursor {
+.hello-code.is-typing::after {
+  content: "_";
   color: var(--accent);
   animation: blink 0.9s steps(1, end) infinite;
 }
